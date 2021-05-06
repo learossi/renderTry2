@@ -17,15 +17,9 @@ public:
 		b = blue; 
 	};
 	virtual bool shadowCheck(ray& r, vec3& normal, shapeList& shapeRecord);
+	virtual vec3 lightDirectionReturn(vec3 intersectionPoint);
 	vec3 LColor();
 
-	/*vec3 d; //light direction { inheriting members from class Light now}
-	float i; //light intensity
-
-private:
-	float r;
-	float g;
-	float b;*/
 };
 
 vec3 dLight::LColor() { return vec3(r,g,b); };
@@ -43,5 +37,6 @@ bool dLight::shadowCheck(ray& r, vec3& normal, shapeList& shapeRecord) {//maybe 
 		return true;
 	}
 };
+vec3 dLight::lightDirectionReturn(vec3 intersectionPoint) { return d; }
 
 #endif // !dLight_h
