@@ -7,6 +7,8 @@
 class shapeList : public shape {
 public:
 	shapeList(shape **list, int length) {
+		//takes a pointer array of primitive objects (declared in main right now) and an integer which is the number of objects in that array
+
 		l = length;
 		allShapes = list; 
 		minD = 0;
@@ -25,6 +27,7 @@ private:
 };
 
 bool shapeList::intersect(ray& r, float& scaleOut) {//need to figure out if I want a parameter for the shape list
+	//takes in a ray and a scale parameter which is only another way to output: returns true if ray intersects with any object in shapeList
 	shapeNumRec = -1;
 	for (int i = 0; i < l; i++) {
 		if (allShapes[i]->intersect(r, this->scale)) {
@@ -37,8 +40,8 @@ bool shapeList::intersect(ray& r, float& scaleOut) {//need to figure out if I wa
 			};
 		};
 	};
-	if (shapeNumRec != -1) {
-		r.s = minD;
+	if (shapeNumRec != -1) { //if there was an intersection
+		r.s = minD; //find nearest intersected object
 		scaleOut = minD;
 		return true;
 	}
