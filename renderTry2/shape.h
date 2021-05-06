@@ -13,6 +13,8 @@ class shape {
 public:
 	static int rayDepth;
 	static int raysPerLevel;
+	static vec3 bgC;
+	int mat;
 	virtual vec3 normal(ray& r);
 	virtual bool intersect(ray& r, float& scaleOut);
 	virtual vec3 color(ray& r, Light& l, const int& listNum, shapeList& shapesRecord, bool scatter=true);
