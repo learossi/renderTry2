@@ -20,7 +20,7 @@ public:
 	vec3 direction() { return d; }
 
 	vec3 scale(float c) { return o + d * c; };
-	vec3 finalRay() { return o + d * s; }; //make sure this actually works, not sure s gets update properly
+	vec3 finalRay() { return o + d * s; }; //returns the final location of the ray
 };
 
 
