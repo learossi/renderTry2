@@ -10,11 +10,11 @@ public:
 	vec3() {c[0] = 0; c[1] = 0; c[2] = 0;};
 	vec3(float x, float y, float z) {c[0] = { x }; c[1] = { y }; c[2] = { z };};
 
-	float magn() {return sqrt(c[0] * c[0] + c[1] * c[1] + c[2] * c[2]);}; //returns the magnitude
+	float magn() {return sqrt(c[0] * c[0] + c[1] * c[1] + c[2] * c[2]);}; //returns the magnitude of the vector
 	vec3 norm() {float magnitude = magn(); return vec3(c[0] / magnitude, c[1] / magnitude, c[2] / magnitude);}; //return the normal vector
-	vec3 cross(vec3& v2) {//cross product
+	vec3 cross(vec3& v2) {//takes in one other vector, returns cross product
 		return vec3(v2.c[2] * c[1] - c[2] * v2.c[1], c[2] * v2.c[0] - c[0] * v2.c[2], c[0] * v2.c[1] - c[1] * v2.c[0]);};
-	float dot(vec3 v2) {//dot product
+	float dot(vec3 v2) {//takes in one other vector, returns dot product
 		return c[0] * v2.c[0] + c[1] * v2.c[1] + c[2] * v2.c[2];};
 	float x() { return c[0]; };
 	float y() { return c[1]; };
@@ -34,9 +34,9 @@ public:
 		return vec3(c[0] / v, c[1] / v, c[2] / v);};
 	void operator=(const vec3 v) {//equality
 		c[0] = v.c[0]; c[1] = v.c[1]; c[2] = v.c[2];};
-	void operator+=(const vec3 v) {
+	void operator+=(const vec3 v) {//the addition reassignment operator over vectors
 		c[0] = c[0] + v.c[0]; c[1] = c[1] + v.c[1]; c[2] = c[2] + v.c[2];}
-	bool operator==(vec3 v) {
+	bool operator==(vec3 v) {//boolean equality test over vectors
 		if (c[0] == v.x() && c[1] == v.y() && c[2] == v.z()) {return true;}
 		else {return false;}}
 
